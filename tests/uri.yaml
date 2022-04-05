@@ -7,12 +7,12 @@
         url: "http://balancer"                                                  
         return_content: yes                                                     
       register: response                                                        
-    - debug:                                                                    
+    - debug: Response                                                           
         msg: "Aplicação Dexter: [200] OK"                                       
       when: 
         - response.status == 200
         - '"<p>A transportadora Dexter Courier" in response.content'
-    - debug:
+    - debug: Response
         msg: "Aplicação Dexter: [ERR] Could not connect to mysql"      
       when:
         - '"Could not connect to mysql" in response.content'
